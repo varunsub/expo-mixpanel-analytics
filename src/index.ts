@@ -1,4 +1,5 @@
-import { Platform, Dimensions, AsyncStorage } from "react-native";
+import { Platform, Dimensions } from "react-native";
+import AsyncStorage from '@react-native-community/async-storage'
 import Constants from "expo-constants";
 import { Buffer } from "buffer";
 
