@@ -1,16 +1,17 @@
 {
   "name": "@bothrs/expo-mixpanel-analytics",
-  "version": "0.2.0",
-  "description": "Mixpanel integration for use with React Native apps built on Expo.",
+  "version": "0.2.1",
+  "description": "Mixpanel integration for use with React Native apps built on Expo 38.",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benawad/expo-mixpanel-analytics.git"
+    "url": "git+https://github.com/bothrs/expo-mixpanel-analytics.git"
   },
   "keywords": [
     "react",
