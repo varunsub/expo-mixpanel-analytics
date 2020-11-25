@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 import Constants from "expo-constants";
 import { Buffer } from "buffer";
 
+// @ts-ignore
 const { width, height } = Dimensions.get("window");
 
 const MIXPANEL_API_URL = "https://api.mixpanel.com";

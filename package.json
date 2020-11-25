@@ -1,12 +1,12 @@
 {
   "name": "@bothrs/expo-mixpanel-analytics",
   "version": "0.2.1",
-  "description": "Mixpanel integration for use with React Native apps built on Expo 38.",
+  "description": "Mixpanel integration for use with React Native apps built on Expo 39.",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "rimraf dist src/index.js && tsc",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -26,18 +26,18 @@
     "url": "https://github.com/codekadiya/expo-mixpanel-analytics/issues"
   },
   "dependencies": {
-    "@react-native-community/async-storage": "^1.11.0",
-    "buffer": "^5.2.1"
-  },
-  "peerDependencies": {
-    "expo-constants": "^5.0.1",
-    "react": "16.5.2",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
+    "@react-native-community/async-storage": "1",
+    "buffer": "6"
   },
   "devDependencies": {
-    "@types/expo": "^32.0.10",
-    "@types/react-native": "^0.57.43",
-    "rimraf": "^2.6.3",
-    "typescript": "^3.4.3"
+    "@types/react-native": "^0.62.18",
+    "expo-constants": "9",
+    "rimraf": "3",
+    "typescript": "3.9"
+  },
+  "peerDependencies": {
+    "expo-constants": "9",
+    "react": "16",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz"
   }
 }
