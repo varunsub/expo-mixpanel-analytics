@@ -4,23 +4,21 @@ import Constants from "expo-constants";
 import { Buffer } from "buffer";
 
 const MIXPANEL_API_URL = "https://api.mixpanel.com";
-const ASYNC_STORAGE_KEY = "mixpanel:super:props";
-const isIosPlatform = Platform.OS === "ios";
 
 export class ExpoMixpanelAnalytics {
   ready = false;
   token: string;
+  storageKey: string;
   userId?: string | null;
   clientId?: string;
   platform?: string;
   model?: string;
-  queue: any[];
+  queue: any[] = [];
   constants: { [key: string]: string | number | void } = {};
   superProps: any = {};
 
-  constructor(token) {
-    this.ready = false;
-    this.queue = [];
+  constructor(token, storageKey = "mixpanel:super:props") {
+    this.storageKey = storageKey;
 
     this.token = token;
     this.userId = null;
@@ -44,14 +42,18 @@ export class ExpoMixpanelAnalytics {
         screen_width: width,
         user_agent: userAgent,
       });
-      if (isIosPlatform && Constants.platform && Constants.platform.ios) {
+      if (
+        Platform.OS === "ios" &&
+        Constants.platform &&
+        Constants.platform.ios
+      ) {
         this.platform = Constants.platform.ios.platform;
         this.model = Constants.platform.ios.model;
       } else {
         this.platform = "android";
       }
 
-      AsyncStorage.getItem(ASYNC_STORAGE_KEY, (_, result) => {
+      AsyncStorage.getItem(this.storageKey, (_, result) => {
         if (result) {
           try {
             this.superProps = JSON.parse(result) || {};
@@ -67,7 +69,7 @@ export class ExpoMixpanelAnalytics {
   register(props: any) {
     this.superProps = props;
     try {
-      AsyncStorage.setItem(ASYNC_STORAGE_KEY, JSON.stringify(props));
+      AsyncStorage.setItem(this.storageKey, JSON.stringify(props));
     } catch {}
   }
 
@@ -86,7 +88,7 @@ export class ExpoMixpanelAnalytics {
   reset() {
     this.identify(this.clientId);
     try {
-      AsyncStorage.setItem(ASYNC_STORAGE_KEY, JSON.stringify({}));
+      AsyncStorage.setItem(this.storageKey, JSON.stringify({}));
     } catch {}
   }
 

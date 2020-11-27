@@ -20,6 +20,9 @@
     "mixpanel",
     "analytics"
   ],
+  "files": [
+    "dist"
+  ],
   "author": "Ben Awad",
   "license": "MIT",
   "bugs": {
@@ -33,8 +36,8 @@
     "@types/react-native": "^0.62.18",
     "expo-constants": "9",
     "rimraf": "3",
-    "typescript": "3.9",
-    "tslib": "^2.0.3"
+    "tslib": "^2.0.3",
+    "typescript": "3.9"
   },
   "peerDependencies": {
     "expo-constants": "9",
