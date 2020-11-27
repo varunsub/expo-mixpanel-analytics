@@ -59,7 +59,6 @@ export class ExpoMixpanelAnalytics {
         }
 
         this.ready = true;
-        this.identify(this.clientId);
         this._flush();
       });
     });
