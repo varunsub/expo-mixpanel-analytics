@@ -1,6 +1,9 @@
 import { Platform, Dimensions } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import Constants from "expo-constants";
+import * as Device from "expo-device";
+
 import { Buffer } from "buffer";
 
 const MIXPANEL_API_URL = "https://api.mixpanel.com";
@@ -47,8 +50,8 @@ export class ExpoMixpanelAnalytics {
         Constants.platform &&
         Constants.platform.ios
       ) {
-        this.platform = Constants.platform.ios.platform;
-        this.model = Constants.platform.ios.model;
+        this.platform = Platform.OS;
+        this.model = Device.modelName || undefined;
       } else {
         this.platform = "android";
       }

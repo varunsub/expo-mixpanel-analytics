@@ -30,14 +30,15 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.16.1",
-    "buffer": "6"
+    "buffer": "6",
+    "expo-device": "^4.1.1"
   },
   "devDependencies": {
-    "@types/react-native": "^0.62.18",
-    "expo-constants": "9",
+    "@types/react-native": "^0.67.2",
+    "expo-constants": "13.0.2",
     "rimraf": "3",
-    "tslib": "^2.0.3",
-    "typescript": "3.9"
+    "tslib": "^2.3.1",
+    "typescript": "4.6.2"
   },
   "peerDependencies": {
     "expo-constants": "9",
