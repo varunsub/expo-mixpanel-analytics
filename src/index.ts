@@ -50,7 +50,7 @@ export class ExpoMixpanelAnalytics {
         Constants.platform &&
         Constants.platform.ios
       ) {
-        this.platform = Platform.OS;
+        this.platform = Device.modelId;
         this.model = Device.modelName || undefined;
       } else {
         this.platform = "android";
