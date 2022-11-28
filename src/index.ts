@@ -1,4 +1,5 @@
 import { Platform, Dimensions } from "react-native";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import Constants from "expo-constants";
@@ -19,6 +20,7 @@ export class ExpoMixpanelAnalytics {
   queue: any[] = [];
   constants: { [key: string]: string | number | void } = {};
   superProps: any = {};
+  brand?:string
 
   constructor(token, storageKey = "mixpanel:super:props") {
     this.storageKey = storageKey;
@@ -45,16 +47,11 @@ export class ExpoMixpanelAnalytics {
         screen_width: width,
         user_agent: userAgent,
       });
-      if (
-        Platform.OS === "ios" &&
-        Constants.platform &&
-        Constants.platform.ios
-      ) {
-        this.platform = Device.modelId;
-        this.model = Device.modelName || undefined;
-      } else {
-        this.platform = "android";
-      }
+
+      this.brand = Device.brand|| undefined;
+      this.platform = Platform.OS;
+      this.model = Device.modelName || undefined;
+
 
       AsyncStorage.getItem(this.storageKey, (_, result) => {
         if (result) {
