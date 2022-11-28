@@ -31,7 +31,7 @@
   "dependencies": {
     "buffer": "6",
     "expo-constants": "^13",
-    "expo-device": "^4.1.1"
+    "expo-device": "^5.0.0"
   },
   "devDependencies": {
     "@types/react-native": "^0.67.2",
