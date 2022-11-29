@@ -27,7 +27,7 @@ export class ExpoMixpanelAnalytics {
 
     this.token = token;
     this.userId = null;
-    this.clientId = Constants.deviceId || Constants.installationId;
+    this.clientId = Constants.deviceId
     this.constants = {
       app_build_number: Constants.manifest?.revisionId,
       app_id: Constants.manifest?.slug,
